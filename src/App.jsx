@@ -15,7 +15,7 @@ import './App.css';
 function App() {
   return (
     <ThemeProvider>
-      <Router basename="/Portfolio-Website">
+      <Router>
           <div className="App">
             <Navbar />
             <HamburgerNav />
