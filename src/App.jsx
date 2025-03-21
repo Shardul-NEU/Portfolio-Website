@@ -15,24 +15,24 @@ import './App.css';
 function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <div className="App">
-          <Navbar />
-          <HamburgerNav />
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Profile />
-                <About />
-                <Experience />
-                <Projects />
-                <Contact />
-              </>
-            } />
-          </Routes>
-          <Footer />
-        </div>
-      </Router>
+      <Router basename="/Portfolio-Website">
+          <div className="App">
+            <Navbar />
+            <HamburgerNav />
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <Profile />
+                  <About />
+                  <Experience />
+                  <Projects />
+                  <Contact />
+                </>
+              } />
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
     </ThemeProvider>
   );
 }
