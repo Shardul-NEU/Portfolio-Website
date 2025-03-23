@@ -606,6 +606,7 @@ footer p {
   display: flex;
   align-items: center;
   padding: 3px;
+  overflow: hidden;
 }
 
 .theme-toggle-wrapper {
@@ -634,6 +635,8 @@ footer p {
 .theme-toggle input:checked + .slider {
   background: linear-gradient(to right, #af4514, #0a4369, #082470, #2b2b2b, #2b2b2b);
   justify-content: flex-end;
+  position: relative;
+  z-index: 0;
 }
 
 .theme-toggle input:checked + .slider .icon-container {
@@ -657,6 +660,51 @@ footer p {
 
 .theme-toggle-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle .stars {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 1S;
+}
+
+.theme-toggle .stars::before,
+.theme-toggle .stars::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+   
+    
+    4px 16px white,
+    8px 3px white,
+    11px 11px white,
+    
+    15px 18px white,
+    09px 24px white,
+    22px 26px white,
+   
+    23px 13px white,
+    19px 3px white;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  opacity: 0.8;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .theme-icon {

@@ -15,6 +15,7 @@ const ThemeToggle = () => {
           onChange={toggleTheme}
         />
         <div className="slider">
+        <div class="stars"></div>
           <div className="icon-container">
             <img 
               src={isDarkMode ? moonIcon : sunIcon} 
