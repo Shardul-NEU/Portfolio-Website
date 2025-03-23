@@ -1,5 +1,5 @@
-// Update Navbar.js to include the theme toggle and offset for scroll
-import React, { useContext } from 'react';
+// Navbar.jsx
+import React from 'react';
 import { Link } from 'react-scroll';
 import ThemeToggle from './ThemeToggle';
 

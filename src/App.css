@@ -8,6 +8,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  padding-top: 12vh;
 }
 
 html {
@@ -46,6 +47,7 @@ nav {
 }
 
 #desktop-nav {
+  display: flex;
   position: fixed; /* This makes it stay in place while scrolling */
   top: 0;
   left: 0;
@@ -92,6 +94,16 @@ a:hover {
 
 #hamburger-nav {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.dark-mode #hamburger-nav {
+  background-color: #121212;
 }
 
 .hamburger-menu {
@@ -514,6 +526,12 @@ footer p {
   .about-containers {
     margin-top: 0;
   }
+  .menu-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -805,3 +823,4 @@ footer p {
   height: 24px;
   transition: all 0.4s ease;
 }
+
