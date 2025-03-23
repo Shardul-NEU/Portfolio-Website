@@ -1,0 +1,47 @@
+/* Blur the background */
+.blur-background {
+    filter: blur(4px);
+  }
+  
+  /* Modal overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  
+  /* Modal box */
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 1000px;
+    width: 95%;
+    position: relative;
+    text-align: left;
+  }
+  
+  /* Close button */
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dark mode support */
+  .dark-mode .modal-content {
+    background: #1e1e1e;
+    color: #e0e0e0;
+  }
+  

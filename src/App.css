@@ -344,9 +344,15 @@ section {
   flex: 1;
   background: white;
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border: 0.1rem solid rgb(163, 163, 163);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* if clickable */
+}
+
+.details-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .section-container {
@@ -626,7 +632,7 @@ footer p {
 }
 
 .theme-toggle input:checked + .slider {
-  background: linear-gradient(to right, #1e1e2e, #2b2b2b);
+  background: linear-gradient(to right, #af4514, #0a4369, #082470, #2b2b2b, #2b2b2b);
   justify-content: flex-end;
 }
 

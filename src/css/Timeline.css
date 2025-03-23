@@ -1,0 +1,100 @@
+/* Scrollable container */
+.timeline-scroll-wrapper {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+  
+  /* Main vertical timeline */
+  .timeline-container {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid #0b0b0f; /* Indigo-500 */
+    margin: 2rem auto;
+    max-width: 1000px;
+  }
+  
+  /* Each timeline item */
+  .timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  /* Year label */
+  .timeline-year {
+    font-size: 0.85rem;
+    color: #0a0a10;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  /* Content spacing */
+  .timeline-content {
+    margin-left: 1.5rem;
+  }
+  
+  /* Stylish box for each experience */
+  .timeline-box {
+    background-color: white;
+    border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+    border-left: 4px solid #17181a; /* Accent color */
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .timeline-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .timeline-box h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .timeline-box h4 {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #6b7280;
+  }
+  
+  .timeline-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.6;
+  }
+  
+  /* DARK MODE */
+  .dark-mode .timeline-container {
+    border-left-color: #ffffff;
+  }
+  
+  .dark-mode .timeline-year {
+    color: #93c5fd;
+  }
+  
+  .dark-mode .timeline-box {
+    background-color: #1f2937; /* Tailwind gray-800 */
+    border-color: #374151;
+    border-left-color: #1a1c20;
+    color: #f3f4f6;
+  }
+  
+  .dark-mode .timeline-box h3 {
+    color: #ffffff;
+  }
+  
+  .dark-mode .timeline-box h4 {
+    color: #cbd5e1;
+  }
+  
+  .dark-mode .timeline-box p {
+    color: #e5e7eb;
+  }
+  
