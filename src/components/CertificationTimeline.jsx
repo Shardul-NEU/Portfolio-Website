@@ -1,5 +1,5 @@
 // components/ExperienceTimeline.js
-import React from 'react'; // Removed useEffect since we're not using Credly's script
+import React from 'react';
 import '../css/Timeline.css';
 
 const experienceData = [
@@ -22,14 +22,14 @@ const experienceData = [
     title: 'Terraform Associate (HCTAO-003)',
     company: 'Certificate Number : 2e7797ba-b78b-4695-9260-e389b5ca7328',
     badgeId: '2e7797ba-b78b-4695-9260-e389b5ca7328',
-    badgeImage: 'https://images.credly.com/size/340x340/images/99289602-861e-4929-8277-773e63a2fa6f/image.png', // Replace with actual image URL
+    badgeImage: 'https://images.credly.com/size/340x340/images/99289602-861e-4929-8277-773e63a2fa6f/image.png',
   },
   {
     year: 'Microsoft',
     title: 'Azure Fundamentals',
     company: 'Certification Number : I791-6335',
     badgeId: '115ab97f-a350-481f-a808-b6fa33ed0288',
-    badgeImage: 'https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png', // Replace with actual image URL
+    badgeImage: 'https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png',
   },
 ];
 
@@ -44,19 +44,20 @@ const CertificationTimeline = () => {
               <div className="timeline-box timeline-flex">
                 {item.badgeId && item.badgeImage && (
                   <div className="credly-badge">
-                    <a 
-                      href={`https://www.credly.com/badges/${item.badgeId}/public_url`} 
-                      target="_blank" 
+                    <a
+                      href={`https://www.credly.com/badges/${item.badgeId}/public_url`}
+                      target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img 
-                        src={item.badgeImage} 
-                        alt={item.title} 
+                      <img
+                        className="badge-img" 
+                        src={item.badgeImage}
+                        alt={item.title}
                       />
                     </a>
                   </div>
                 )}
-                <div>
+                <div className="badge-text">
                   <h3>{item.title}</h3>
                   <h4>{item.company}</h4>
                   <p>{item.details}</p>
