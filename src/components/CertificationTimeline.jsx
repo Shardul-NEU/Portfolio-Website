@@ -43,7 +43,7 @@ const CertificationTimeline = () => {
             <div className="timeline-content">
               <div className="timeline-box timeline-flex">
                 {item.badgeId && item.badgeImage && (
-                  <div className="credly-badge">
+                  <div className="badge-img">
                     <a
                       href={`https://www.credly.com/badges/${item.badgeId}/public_url`}
                       target="_blank"

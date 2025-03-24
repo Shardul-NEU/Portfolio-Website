@@ -61,8 +61,8 @@ const About = () => {
 
               <div className="details-container" onClick={() => openModal('education2')}>
                 <img src={educationIcon} alt="Education icon" className="icon" />
-                <h3>Education</h3>
-                <p>M.S. in Computer Software Engineering <br />B.Tech in Computer Science</p>
+                <h3>Certification</h3>
+                <p> Cloud : AWS , Azure <br /> Iac : Terraform </p>
               </div>
             </div>
           </div>

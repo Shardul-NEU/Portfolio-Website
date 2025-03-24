@@ -30,7 +30,7 @@ const EducationTimeline = () => {
             <div className="timeline-content">
               <div className="timeline-box timeline-flex">
                 {item.badgeImage && (
-                  <div className="education-badge">
+                  <div className="badge-img">
                     <a
                       href={`www.northeastern.edu`}
                       target="_blank"
