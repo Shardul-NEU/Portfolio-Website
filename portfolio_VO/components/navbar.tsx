@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
+import { ThemeToggle } from "./theme-toggle"
 import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { useTheme } from "next-themes"
 
 const navItems = [
   { name: "Home", href: "#" },
@@ -17,44 +17,10 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ]
 
-// Create ThemeToggle component inline
-function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      aria-label="Toggle theme"
-    >
-      <SunIcon className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <MoonIcon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
-  )
-}
-
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
-
-  // Handle navigation link clicks
-  const handleNavClick = (href) => {
-    // For the home link (href="#"), set activeSection to "home"
-    if (href === "#") {
-      setActiveSection("home")
-    } else {
-      // For other links, extract the section name from the href
-      setActiveSection(href.replace("#", ""))
-    }
-
-    // Close mobile menu if it's open
-    if (mobileMenuOpen) {
-      setMobileMenuOpen(false)
-    }
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,11 +28,7 @@ export default function Navbar() {
     }
 
     const handleSectionObservation = () => {
-      // Get all section IDs from navItems
       const sections = navItems.map((item) => item.href.replace("#", "")).filter(Boolean)
-
-      // Add special handling for home section
-      const homeSection = document.getElementById("home") || document.querySelector("main > div:first-child")
 
       const observerOptions = {
         root: null,
@@ -77,28 +39,17 @@ export default function Navbar() {
       const observerCallback = (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // If the section has an ID, use it; otherwise check if it's the home section
-            if (entry.target.id) {
-              setActiveSection(entry.target.id)
-            } else if (entry.target === homeSection) {
-              setActiveSection("home")
-            }
+            setActiveSection(entry.target.id || "home")
           }
         })
       }
 
       const observer = new IntersectionObserver(observerCallback, observerOptions)
 
-      // Observe all sections including home
       sections.forEach((section) => {
         const element = document.getElementById(section)
         if (element) observer.observe(element)
       })
-
-      // Observe home section if it exists
-      if (homeSection && !homeSection.id) {
-        observer.observe(homeSection)
-      }
 
       return () => observer.disconnect()
     }
@@ -139,10 +90,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <motion.a
             href="#"
-            onClick={() => handleNavClick("#")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-xl font-bold text-black dark:text-white transition-colors"
+            className="text-xl font-bold bg-gradient-to-r from-sky-500 to-blue-700 dark:from-sky-400 dark:to-blue-600 bg-clip-text text-transparent"
           >
             Shardul Deshmukh
           </motion.a>
@@ -153,17 +103,14 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={() => handleNavClick(item.href)}
                 className={`relative px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  (item.href === "#" && activeSection === "home") ||
-                  (item.href !== "#" && activeSection === item.href.replace("#", ""))
+                  activeSection === (item.href.replace("#", "") || "home")
                     ? "text-sky-600 dark:text-sky-400"
                     : "text-slate-700 hover:text-sky-600 dark:text-slate-200 dark:hover:text-sky-400"
                 }`}
               >
                 {item.name}
-                {((item.href === "#" && activeSection === "home") ||
-                  (item.href !== "#" && activeSection === item.href.replace("#", ""))) && (
+                {activeSection === (item.href.replace("#", "") || "home") && (
                   <motion.div
                     layoutId="activeSection"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-sky-500 dark:bg-sky-400 rounded-full"
@@ -213,10 +160,9 @@ export default function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={`py-2 px-4 rounded-md ${
-                    (item.href === "#" && activeSection === "home") ||
-                    (item.href !== "#" && activeSection === item.href.replace("#", ""))
+                    activeSection === (item.href.replace("#", "") || "home")
                       ? "bg-sky-50 text-sky-600 dark:bg-sky-900/20 dark:text-sky-400"
                       : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-gunmetal-800"
                   }`}
