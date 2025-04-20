@@ -6,7 +6,7 @@ on:
       - main  # Trigger deploy when pushing to main
 
 permissions:
-  contents: write
+  contents: write  # Required to push to gh-pages
 
 jobs:
   deploy:
@@ -19,21 +19,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps # avoid errors
+        run: npm install --legacy-peer-deps
 
-      - name: Build and Export
+      - name: Build static site with Next.js
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./portfolio_VO/out  # fixed relative path
+          publish_dir: ./out  # Must match `output: 'export'`
           publish_branch: gh-pages
-          cname: www.shardul-deshmukh.com  # optional: only if custom domain is used
+          cname: www.shardul-deshmukh.com  # remove if you're not using a custom domain
