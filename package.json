@@ -5,11 +5,11 @@
   "scripts": {
   "dev": "next dev",
   "build": "next build",
-  "export": "next export",
   "start": "next start",
   "lint": "next lint",
-  "deploy": "npm run build && npm run export"
+  "deploy": "npm run build"
 },
+
 
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
