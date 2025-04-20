@@ -30,10 +30,14 @@ jobs:
       - name: Build static site with Next.js
         run: npm run build
 
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # Must match `output: 'export'`
+          publish_dir: ./portfolio_VO/out  # Full path from repository root
           publish_branch: gh-pages
-          cname: www.shardul-deshmukh.com  # remove if you're not using a custom domain
+          cname: www.shardul-deshmukh.com  # Your custom domain
+          force_orphan: true  # Create a fresh gh-pages branch without history
