@@ -35,4 +35,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: portfolio_VO/out
           publish_branch: gh-pages
-          cname: www.shardul-deshmukh.com  # maintains custom domain
+          cname: www.shardul-deshmukh.com  # maintains custom domains
