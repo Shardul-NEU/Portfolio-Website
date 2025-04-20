@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # Trigger deploy when pushing to main
 
 permissions:
   contents: write
@@ -12,8 +12,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     defaults:
-        run:
-            working-directory: portfolio_VO
+      run:
+        working-directory: portfolio_VO
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -24,7 +25,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps # avoid errors
 
       - name: Build and Export
         run: npm run build
@@ -33,6 +34,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: portfolio_VO/out
+          publish_dir: ./portfolio_VO/out  # fixed relative path
           publish_branch: gh-pages
-          cname: www.shardul-deshmukh.com  # maintains custom domains
+          cname: www.shardul-deshmukh.com  # optional: only if custom domain is used
