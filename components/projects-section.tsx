@@ -7,28 +7,28 @@ import { FadeIn, StaggerChildren, StaggerItem } from "@/components/scroll-animat
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "A modern web application built with React and Node.js",
-    image: "/placeholder.svg?height=300&width=500",
-    github: "#",
-    demo: "#",
+    title: "AWS-DEVOPS-WEBAPP",
+    description: "Project implements AWS infrastructure and DevOps best practices including security, CI/CD, IaC, Scalability and Availability",
+    image: "/Projects-Image-1.png",
+    github: "https://github.com/Shardul-NEU/AWS_DEVOPS_WEBAPP",
+    demo: "https://github.com/Shardul-NEU/AWS_DEVOPS_WEBAPP",
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "A cloud-based solution using AWS and serverless architecture",
-    image: "/placeholder.svg?height=300&width=500",
-    github: "#",
-    demo: "#",
+    title: "AWS Mini Projects",
+    description: "This repository hosts different mini projects on AWS, ranging from Automated Resource Tagging, CDN deployment, CI/CD using CodePipeline",
+    image: "/Projects-Image-2.png",
+    github: "https://github.com/Shardul-NEU/AWS_Projects",
+    demo: "https://github.com/Shardul-NEU/AWS_Projects",
   },
-  {
-    id: 3,
-    title: "Project Three",
-    description: "A mobile-first e-commerce platform with payment integration",
-    image: "/placeholder.svg?height=300&width=500",
-    github: "#",
-    demo: "#",
-  },
+  // {
+  //   id: 3,
+  //   title: "Project Three",
+  //   description: "A mobile-first e-commerce platform with payment integration",
+  //   image: "/placeholder.svg?height=300&width=500",
+  //   github: "#",
+  //   demo: "#",
+  // },
 ]
 
 export default function ProjectsSection() {
@@ -50,7 +50,11 @@ export default function ProjectsSection() {
         </FadeIn>
 
         <StaggerChildren staggerDelay={0.15}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-8 justify-center"
+                style = {{
+                  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                  justifyItems: "center"
+                }}>
             {projects.map((project) => (
               <StaggerItem key={project.id} direction="up">
                 <div className="bg-white dark:bg-gunmetal-900 rounded-xl shadow-md overflow-hidden h-full">

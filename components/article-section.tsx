@@ -10,29 +10,29 @@ import { FadeIn, StaggerChildren, StaggerItem } from "@/components/scroll-animat
 // Sample article data - replace with your actual Medium articles
 const articles = [
   {
-    title: "Building Scalable Cloud Infrastructure with Terraform and AWS",
-    excerpt: "Learn how to create infrastructure as code using Terraform to deploy scalable applications on AWS.",
-    image: "/article-cloud.jpg",
-    date: "Apr 15, 2024",
-    url: "https://medium.com/@username/article-1",
+    title: "Can Your App Handle The Hype : AWS System Design",
+    excerpt: "This article dives deep into basics of System Design that lets your application scale gracefully on AWS",
+    image: "/medium-article-1.png",
+    date: "Apr 21, 2025",
+    url: "https://medium.com/@thecloudkid/sysd-1-3f5e21922130",
     readTime: "8 min read",
   },
-  {
-    title: "Kubernetes Best Practices for Production Environments",
-    excerpt: "Discover essential practices for running stable, secure Kubernetes clusters in production.",
-    image: "/article-kubernetes.jpg",
-    date: "Mar 22, 2024",
-    url: "https://medium.com/@username/article-2",
-    readTime: "12 min read",
-  },
-  {
-    title: "Implementing CI/CD Pipelines with GitHub Actions",
-    excerpt: "A step-by-step guide to setting up efficient CI/CD workflows using GitHub Actions for your projects.",
-    image: "/article-cicd.jpg",
-    date: "Feb 10, 2024",
-    url: "https://medium.com/@username/article-3",
-    readTime: "10 min read",
-  },
+  // {
+  //   title: "Kubernetes Best Practices for Production Environments",
+  //   excerpt: "Discover essential practices for running stable, secure Kubernetes clusters in production.",
+  //   image: "/article-kubernetes.jpg",
+  //   date: "Mar 22, 2024",
+  //   url: "https://medium.com/@username/article-2",
+  //   readTime: "12 min read",
+  // },
+  // {
+  //   title: "Implementing CI/CD Pipelines with GitHub Actions",
+  //   excerpt: "A step-by-step guide to setting up efficient CI/CD workflows using GitHub Actions for your projects.",
+  //   image: "/article-cicd.jpg",
+  //   date: "Feb 10, 2024",
+  //   url: "https://medium.com/@username/article-3",
+  //   readTime: "10 min read",
+  // },
 ]
 
 export default function ArticleSection() {
@@ -52,7 +52,11 @@ export default function ArticleSection() {
         </FadeIn>
 
         <StaggerChildren staggerDelay={0.15}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 justify-center"
+                style = {{
+                  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                  justifyItems: "center"
+                }}>
             {articles.map((article, index) => (
               <StaggerItem key={article.title} direction="up">
                 <div className="bg-white dark:bg-gunmetal-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 h-full">
