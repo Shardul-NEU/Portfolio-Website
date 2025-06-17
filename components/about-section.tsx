@@ -208,6 +208,37 @@ export default function AboutSection() {
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <FadeIn direction="up" delay={0.5} fullWidth className="md:col-span-3">
+  <div className="bg-white dark:bg-gunmetal-900 rounded-xl shadow-md overflow-hidden">
+    <div className="p-6">
+      <div className="flex flex-col">
+        <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+          I am a passionate Full-Stack and Cloud Developer with expertise in building modern web applications.
+          With a strong foundation in both frontend and backend technologies, I create seamless user
+          experiences while ensuring robust and scalable architectures. My experience spans across various
+          industries, helping businesses transform their digital presence.
+        </p>
+
+        {/* Resume Download Button */}
+        <div className="flex justify-center">
+          <motion.a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-3 bg-sky-600 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FileText className="mr-2 h-5 w-5" />
+            Download Full Resume
+          </motion.a>
+        </div>
+      </div>
+    </div>
+  </div>
+</FadeIn>
+          
           <FadeIn direction="up" delay={0.2}>
             <motion.div
               whileHover={{
@@ -349,35 +380,7 @@ export default function AboutSection() {
             </motion.div>
           </FadeIn>
 
-          <FadeIn direction="up" delay={0.5} fullWidth className="md:col-span-3">
-            <div className="bg-white dark:bg-gunmetal-900 rounded-xl shadow-md overflow-hidden">
-              <div className="p-6">
-                <div className="flex flex-col md:flex-row items-center justify-between">
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-6 md:mb-0 md:mr-8">
-                    I am a passionate Full-Stack and Cloud Developer with expertise in building modern web applications.
-                    With a strong foundation in both frontend and backend technologies, I create seamless user
-                    experiences while ensuring robust and scalable architectures. My experience spans across various
-                    industries, helping businesses transform their digital presence.
-                  </p>
-
-                  {/* Resume Download Button */}
-                  <div className="flex-shrink-0">
-                    <motion.a
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-sky-600 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <FileText className="mr-2 h-5 w-5" />
-                      Download Full Resume
-                    </motion.a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
+          
         </div>
       </div>
 
